@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080c1b">
+<meta name="description" content="Seminario gratuito de inducción a la doble certificación EC0217.01 y EC0301. Trujillo Digital Hub.">
+<title>Seminario Gratuito | Trujillo Digital Hub</title>
+<style>
+:root{--bg:#080c1b;--panel:#11182d;--pink:#f20b69;--pink2:#a90050;--white:#fff;--muted:#b8c0d4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,#38102e,transparent 35%),linear-gradient(135deg,#080c1b,#111a35,#080c1b);color:var(--white);line-height:1.6}
+.container{width:90%;max-width:1150px;margin:auto}
+header{padding:25px 0}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-icon{background:var(--pink);padding:9px 13px;border-radius:10px;font-weight:900;font-size:22px;transform:skew(-8deg)}
+.logo h2{font-size:19px;line-height:1.2}
+.logo small{color:var(--muted);font-size:10px;letter-spacing:2px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:65px 0}
+.tag{display:inline-block;background:rgba(242,11,105,.15);border:1px solid var(--pink);color:#ff9dc3;padding:8px 17px;border-radius:30px;font-size:13px;font-weight:bold;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,6vw,70px);line-height:1.05;margin:25px 0;font-weight:900}
+.hero h1 span{display:block;color:#ff3985}
+.standards{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:25px}
+.standard{border:2px solid white;padding:9px 17px;border-radius:12px;font-size:22px;font-weight:900;background:rgba(242,11,105,.16)}
+.plus{color:#ff3985;font-size:30px;font-weight:bold}
+.description{color:var(--muted);font-size:17px;max-width:600px}
+.event{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.event div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:13px 17px}
+.event strong{color:#ff6da5}
+.free{display:inline-block;background:linear-gradient(90deg,var(--pink2),var(--pink));padding:12px 25px;border-radius:10px;font-weight:900;letter-spacing:2px}
+.visual{min-height:410px;background:radial-gradient(circle at top right,#81224d,transparent 50%),linear-gradient(145deg,#202b4a,#10162a);border:1px solid rgba(255,255,255,.15);border-radius:28px;padding:35px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.visual::before{content:"🎓";position:absolute;top:35px;right:35px;font-size:115px;opacity:.9}
+.visual h2{font-size:32px;line-height:1.2;margin-bottom:15px;position:relative}
+.visual p{color:var(--muted);position:relative}
+.content{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px;padding:30px 0 80px}
+.panel{background:rgba(17,24,45,.95);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:30px;box-shadow:0 15px 45px rgba(0,0,0,.2)}
+.subtitle{color:#ff6da5;font-weight:bold;text-transform:uppercase;font-size:12px;letter-spacing:2px}
+.panel h2{font-size:27px;margin:10px 0 22px;line-height:1.2}
+.benefit{display:flex;gap:13px;margin-bottom:22px;color:var(--muted)}
+.check{background:rgba(242,11,105,.2);border:1px solid var(--pink);color:white;min-width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:bold}
+.benefit strong{display:block;color:white}
+.notice{background:rgba(242,11,105,.12);border:1px solid rgba(242,11,105,.35);padding:15px;border-radius:12px;color:#ffd8e7;font-size:13px;margin-top:25px}
+.form-panel h2{margin-bottom:8px}
+.form-description{color:var(--muted);margin-bottom:25px;font-size:14px}
+form{display:flex;flex-direction:column;gap:17px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:13px;font-weight:bold}
+input,select,textarea{width:100%;padding:14px;border:1px solid rgba(255,255,255,.15);border-radius:11px;background:#0b1122;color:white;font-family:inherit;font-size:14px;outline:none;transition:.3s}
+input:focus,select:focus,textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(242,11,105,.12)}
+input::placeholder,textarea::placeholder{color:#77819b}
+select option{background:#11182d}
+textarea{min-height:110px;resize:vertical}
+.consent{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:12px;font-weight:normal}
+.consent input{width:17px;min-width:17px;height:17px;margin-top:3px;accent-color:var(--pink)}
+.submit{background:linear-gradient(100deg,#c90055,#ff176f);color:white;border:none;border-radius:12px;padding:17px;font-size:16px;font-weight:900;cursor:pointer;transition:.3s;box-shadow:0 10px 25px rgba(242,11,105,.2)}
+.submit:hover{transform:translateY(-3px);filter:brightness(1.1)}
+.small{text-align:center;font-size:11px;color:#8993ad}
+footer{border-top:1px solid rgba(255,255,255,.1);padding:25px;text-align:center;color:var(--muted);font-size:13px}
+
+/* DOBLE CERTIFICACIÓN */
+.certification-section{padding:10px 0 35px}
+.section-heading{text-align:center;max-width:780px;margin:0 auto 30px}
+.section-heading h2{font-size:clamp(27px,4vw,40px);line-height:1.15;margin:10px 0}
+.section-heading p{color:var(--muted)}
+.certification-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cert-card{background:linear-gradient(145deg,rgba(30,40,69,.96),rgba(15,22,42,.96));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:27px;position:relative;overflow:hidden}
+.cert-card::after{content:"";position:absolute;width:130px;height:130px;right:-55px;top:-55px;border-radius:50%;background:rgba(242,11,105,.13)}
+.cert-code{color:#ff75a9;font-size:13px;font-weight:900;letter-spacing:2px}
+.cert-card h3{font-size:23px;margin:8px 0 12px}
+.cert-card p,.cert-card li{color:var(--muted);font-size:14px}
+.cert-card ul{padding-left:20px;margin-top:13px}
+.cert-card li{margin:7px 0}
+.cert-bridge{text-align:center;margin:22px auto 0;padding:16px 20px;max-width:850px;border:1px solid rgba(242,11,105,.35);border-radius:15px;background:rgba(242,11,105,.09);color:#ffd8e7}
+
+/* TEMARIO Y BENEFICIOS */
+.agenda-section{padding:30px 0 65px}
+.agenda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.agenda-item{padding:21px;border-radius:17px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11)}
+.agenda-number{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--pink);font-weight:900;margin-bottom:12px}
+.agenda-item h3{font-size:17px;margin-bottom:7px}
+.agenda-item p{color:var(--muted);font-size:13px}
+.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.extra-card{border-radius:18px;padding:23px;background:linear-gradient(135deg,rgba(242,11,105,.18),rgba(255,255,255,.045));border:1px solid rgba(242,11,105,.28)}
+.extra-card h3{margin-bottom:8px;font-size:19px}
+.extra-card p{color:var(--muted);font-size:14px}
+.callout{margin:28px 0 0;padding:25px;border-radius:18px;text-align:center;background:linear-gradient(100deg,#a90050,#f20b69);box-shadow:0 14px 35px rgba(242,11,105,.18)}
+.callout h2{font-size:clamp(23px,4vw,34px);margin-bottom:8px}
+.callout p{max-width:760px;margin:auto;color:#fff0f6}
+
+@media(max-width:850px){
+.hero{grid-template-columns:1fr;padding:35px 0}
+.visual{min-height:300px}
+.content{grid-template-columns:1fr}
+.certification-cards{grid-template-columns:1fr}
+.agenda-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:550px){
+.container{width:92%}
+.hero h1{font-size:43px}
+.standard{font-size:17px;padding:8px 12px}
+.event{flex-direction:column}
+.visual{min-height:290px;padding:24px}
+.visual::before{font-size:85px;top:25px;right:25px}
+.visual h2{font-size:26px}
+.panel{padding:22px}
+.form-row{grid-template-columns:1fr}
+.logo h2{font-size:15px}
+.agenda-grid,.extras-grid{grid-template-columns:1fr}
+.cert-card{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<div class="logo">
+<div class="logo-icon">TDH</div>
+<div>
+<h2>TRUJILLO DIGITAL HUB</h2>
+<small>CAPACITACIÓN · CERTIFICACIÓN · INNOVACIÓN</small>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+<div>
+<span class="tag">Seminario de inducción gratuito</span>
+<h1>Impulsa tu perfil.<span>Certifica tu experiencia.</span></h1>
+
+<div class="standards">
+<span class="standard">EC0217.01</span>
+<span class="plus">+</span>
+<span class="standard">EC0301</span>
+</div>
+
+<p class="description">
+¿Te gustaría diseñar experiencias de capacitación mejor estructuradas
+e impartir cursos con mayor seguridad y profesionalismo?
+Conoce dos estándares de competencia que pueden ayudarte
+a fortalecer tu perfil como instructor, capacitador o consultor.
+</p>
+
+<div class="event">
+<div>📅 <strong>Jueves 26 de noviembre</strong><br>2026</div>
+<div>🕖 <strong>7:00 p. m. a 9:00 p. m.</strong><br>Hora del centro de México</div>
+</div>
+<span class="free">100% GRATUITO</span>
+
+
+</div>
+
+<div class="visual">
+<h2>Da el siguiente paso en tu camino profesional.</h2>
+<p>Conoce los alcances de la doble certificación EC0217.01 + EC0301 y resuelve tus dudas en este seminario de inducción.</p>
+</div>
+</section>
+
+<!-- INFORMACIÓN DE LAS CERTIFICACIONES -->
+<section class="certification-section">
+<div class="section-heading">
+<span class="subtitle">Conoce los estándares</span>
+<h2>Dos competencias que se complementan en tu desarrollo como instructor</h2>
+<p>La doble certificación reúne dos áreas importantes del trabajo de capacitación: preparar un curso y facilitarlo frente a un grupo.</p>
+</div>
+
+<div class="certification-cards">
+<article class="cert-card">
+<span class="cert-code">ESTÁNDAR DE COMPETENCIA · EC0301</span>
+<h3>Diseño de cursos de formación</h3>
+<p>Enfocado en la preparación y estructuración de cursos de capacitación. Te permite desarrollar una propuesta formativa con objetivos, contenidos, actividades y recursos organizados.</p>
+<ul>
+<li>Identificación de necesidades de capacitación.</li>
+<li>Definición de objetivos de aprendizaje.</li>
+<li>Organización de contenidos y actividades.</li>
+<li>Selección de recursos y materiales didácticos.</li>
+<li>Planeación de estrategias de evaluación.</li>
+</ul>
+</article>
+
+<article class="cert-card">
+<span class="cert-code">ESTÁNDAR DE COMPETENCIA · EC0217.01</span>
+<h3>Impartición de cursos de formación</h3>
+<p>Enfocado en las habilidades necesarias para conducir cursos de capacitación de manera presencial y grupal, facilitando el aprendizaje y la participación de las personas.</p>
+<ul>
+<li>Preparación de sesiones y del ambiente de aprendizaje.</li>
+<li>Conducción de actividades de apertura, desarrollo y cierre.</li>
+<li>Aplicación de técnicas instruccionales y grupales.</li>
+<li>Manejo de la participación y comunicación con el grupo.</li>
+<li>Verificación del aprendizaje y cierre del curso.</li>
+</ul>
+</article>
+</div>
+
+<div class="cert-bridge">
+<strong>¿Por qué elegir ambas?</strong><br>
+Porque no solo se trata de saber impartir un curso: también es importante saber diseñarlo, organizarlo y evaluar sus resultados. Los dos estándares complementan tu perfil profesional.
+</div>
+</section>
+
+<!-- TEMARIO DEL SEMINARIO -->
+<section class="agenda-section">
+<div class="section-heading">
+<span class="subtitle">Esto veremos durante el seminario</span>
+<h2>Una sesión para resolver tus dudas y conocer tu siguiente paso</h2>
+<p>En dos horas conocerás los aspectos principales de la ruta de doble certificación y cómo puede relacionarse con tu actividad profesional.</p>
+</div>
+
+<div class="agenda-grid">
+<article class="agenda-item">
+<span class="agenda-number">01</span>
+<h3>Panorama de la certificación</h3>
+<p>Qué son los estándares de competencia, para qué sirven y cómo se relacionan con el desarrollo de competencias laborales.</p>
+</article>
+<article class="agenda-item">
+<span class="agenda-number">02</span>
+<h3>Conoce el EC0301</h3>
+<p>Elementos del diseño de cursos: objetivos, contenidos, actividades, materiales y evaluación del aprendizaje.</p>
+</article>
+<article class="agenda-item">
+<span class="agenda-number">03</span>
+<h3>Conoce el EC0217.01</h3>
+<p>Elementos de la impartición: preparación, conducción del grupo, técnicas de facilitación y cierre de la sesión.</p>
+</article>
+<article class="agenda-item">
+<span class="agenda-number">04</span>
+<h3>La ruta para certificarte</h3>
+<p>Conoce las etapas generales del proceso, la orientación inicial y los aspectos que debes considerar para participar.</p>
+</article>
+<article class="agenda-item">
+<span class="agenda-number">05</span>
+<h3>Aplicación en tu actividad profesional</h3>
+<p>Cómo aprovechar estas competencias si eres docente, instructor independiente, consultor o responsable de capacitación.</p>
+</article>
+<article class="agenda-item">
+<span class="agenda-number">06</span>
+<h3>Preguntas y próximos pasos</h3>
+<p>Espacio para resolver dudas, conocer opciones de seguimiento y recibir información sobre las certificaciones.</p>
+</article>
+</div>
+
+<div class="extras-grid">
+<article class="extra-card">
+<h3>🎓 Constancia de asistencia</h3>
+<p>Las personas que participen en el seminario recibirán una constancia de asistencia emitida por Trujillo Digital Hub, conforme a las condiciones de participación que se indiquen durante el evento.</p>
+</article>
+<article class="extra-card">
+<h3>🎁 Beneficio exclusivo para asistentes</h3>
+<p>Al participar, tendrás acceso a un descuento exclusivo para iniciar tu proceso de certificación en EC0217.01 y/o EC0301. Los detalles y condiciones de la promoción se compartirán durante el seminario.</p>
+</article>
+</div>
+
+<div class="callout">
+<h2>Tu experiencia puede convertirse en una competencia reconocida.</h2>
+<p>Invierte dos horas en conocer tus opciones, resolver tus dudas y descubrir cómo dar el siguiente paso en tu trayectoria como capacitador, docente o consultor. La participación en este seminario es gratuita.</p>
+</div>
+</section>
+
+<!-- INFORMACIÓN Y FORMULARIO -->
+<section class="content">
+
+<div class="panel">
+<span class="subtitle">¿Qué conocerás?</span>
+<h2>Una ruta para fortalecer tu perfil como instructor.</h2>
+
+<div class="benefit">
+<span class="check">✓</span>
+<div><strong>Diseño de cursos · EC0301</strong>
+Objetivos, contenidos, actividades, materiales y evaluación del aprendizaje.</div>
+</div>
+
+<div class="benefit">
+<span class="check">✓</span>
+<div><strong>Impartición de cursos · EC0217.01</strong>
+Preparación, conducción del grupo, técnicas de facilitación y cierre de sesiones presenciales y grupales.</div>
+</div>
+
+<div class="benefit">
+<span class="check">✓</span>
+<div><strong>Ruta para certificarte</strong>
+Conoce las etapas generales del proceso y resuelve tus dudas antes de comenzar.</div>
+</div>
+
+<div class="benefit">
+<span class="check">✓</span>
+<div><strong>Beneficios para tu trayectoria</strong>
+Fortalece tu perfil y conoce cómo aplicar estas competencias en tu actividad profesional.</div>
+</div>
+
+<div class="notice">
+<strong>Importante:</strong>
+Este evento es un seminario informativo de inducción.
+La asistencia no equivale a obtener las certificaciones.
+</div>
+</div>
+
+<!-- FORMULARIO DE REGISTRO -->
+<div class="panel form-panel">
+<span class="subtitle">Aparta tu lugar</span>
+<h2>Regístrate gratis</h2>
+<p class="form-description">
+Completa el formulario. Al enviarlo, WhatsApp se abrirá con tu mensaje listo para mandar.
+</p>
+
+<form id="registrationForm">
+
+<div class="form-row">
+<div class="field">
+<label for="name">Nombre completo *</label>
+<input type="text" id="name" name="name" placeholder="Escribe tu nombre" autocomplete="name" required>
+</div>
+
+<div class="field">
+<label for="phone">Tu WhatsApp *</label>
+<input type="tel" id="phone" name="phone" placeholder="10 dígitos" inputmode="tel" autocomplete="tel" pattern="[0-9+\s()-]{10,20}" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="field">
+<label for="email">Correo electrónico</label>
+<input type="email" id="email" name="email" placeholder="tunombre@correo.com" autocomplete="email">
+</div>
+
+<div class="field">
+<label for="experience">¿Cuál es tu experiencia?</label>
+<select id="experience" name="experience">
+<option value="">Selecciona una opción</option>
+<option>Estoy comenzando</option>
+<option>Ya imparto cursos o talleres</option>
+<option>Soy docente o instructor</option>
+<option>Soy consultor o asesor</option>
+<option>Me interesa conocer el proceso</option>
+</select>
+</div>
+</div>
+
+<div class="field">
+<label for="comments">¿Qué te gustaría conocer del proceso?</label>
+<textarea id="comments" name="comments" placeholder="Escribe aquí tus dudas o comentarios..."></textarea>
+</div>
+
+<label class="consent">
+<input type="checkbox" id="consent" required>
+<span>Acepto que mis datos sean utilizados para dar seguimiento a mi registro y enviarme información relacionada con este seminario.</span>
+</label>
+
+<button type="submit" class="submit">ENVIAR REGISTRO POR WHATSAPP ➜</button>
+
+<p class="small">WhatsApp abrirá una conversación. Deberás pulsar Enviar para completar tu registro.</p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<strong>TRUJILLO DIGITAL HUB</strong><br>
+Capacitación · Certificación · Innovación<br>
+© 2026 Todos los derechos reservados.
+</div>
+</footer>
+
+<script>
+// NÚMERO DE WHATSAPP DE TRUJILLO DIGITAL HUB
+const WHATSAPP_NUMBER = "529222081087";
+
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+e.preventDefault();
+
+if (!this.reportValidity()) return;
+
+if (!/^52\d{10}$/.test(WHATSAPP_NUMBER)) {
+alert("Configura tu número de WhatsApp en el código HTML.");
+return;
+}
+
+const formData = new FormData(this);
+const nombre = formData.get("name").trim();
+const telefono = formData.get("phone").trim();
+const correo = formData.get("email").trim();
+const experiencia = formData.get("experience").trim();
+const comentarios = formData.get("comments").trim();
+
+const mensaje = `
+¡Hola, Trujillo Digital Hub! 👋
+
+Quiero registrarme al SEMINARIO GRATUITO DE INDUCCIÓN.
+
+🎓 DOBLE CERTIFICACIÓN
+EC0217.01 + EC0301
+
+📅 Fecha: Jueves 26 de noviembre de 2026
+
+🕖 Horario: 7:00 p. m. a 9:00 p. m.
+
+📋 MIS DATOS:
+
+👤 Nombre: ${nombre}
+📱 WhatsApp: ${telefono}
+📧 Correo: ${correo || "No proporcionado"}
+💼 Experiencia: ${experiencia || "No especificada"}
+💬 Comentarios: ${comentarios || "Sin comentarios"}
+
+🎓 También me interesa recibir información sobre la constancia de asistencia y el descuento exclusivo para asistentes.
+
+¡Me interesa participar!
+Agradezco que me compartan más información.
+`.trim();
+
+const url = "https://wa.me/" + WHATSAPP_NUMBER +
+"?text=" + encodeURIComponent(mensaje);
+
+window.open(url, "_blank", "noopener,noreferrer");
+});
+</script>
+
+</body>
+</html>
