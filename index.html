@@ -10,14 +10,25 @@
 <style>
 :root{--bg:#080c1b;--panel:#11182d;--pink:#f20b69;--pink2:#a90050;--white:#fff;--muted:#b8c0d4}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,#38102e,transparent 35%),linear-gradient(135deg,#080c1b,#111a35,#080c1b);color:var(--white);line-height:1.6}
 .container{width:90%;max-width:1150px;margin:auto}
-header{padding:25px 0}
-.logo{display:flex;align-items:center;gap:14px}
+
+/* NAVEGACIÓN */
+header{padding:14px 0;position:sticky;top:0;z-index:1000;background:rgba(8,12,27,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.09)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
 .logo-icon{background:var(--pink);padding:9px 13px;border-radius:10px;font-weight:900;font-size:22px;transform:skew(-8deg)}
 .logo h2{font-size:19px;line-height:1.2}
 .logo small{color:var(--muted);font-size:10px;letter-spacing:2px}
+.nav-menu{display:flex;align-items:center;gap:8px}
+.nav-menu a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:700;padding:10px 12px;border-radius:9px;transition:.25s}
+.nav-menu a:hover{color:#fff;background:rgba(242,11,105,.14)}
+.nav-menu .nav-cta{color:#fff;background:linear-gradient(100deg,#c90055,#ff176f);padding:11px 17px}
+.nav-menu .nav-cta:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.menu-toggle{display:none;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;border-radius:10px;padding:9px 12px;font-size:21px;cursor:pointer}
+
+/* PORTADA */
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:65px 0}
 .tag{display:inline-block;background:rgba(242,11,105,.15);border:1px solid var(--pink);color:#ff9dc3;padding:8px 17px;border-radius:30px;font-size:13px;font-weight:bold;text-transform:uppercase}
 .hero h1{font-size:clamp(38px,6vw,70px);line-height:1.05;margin:25px 0;font-weight:900}
@@ -34,6 +45,8 @@ header{padding:25px 0}
 .visual::before{content:"🎓";position:absolute;top:35px;right:35px;font-size:115px;opacity:.9}
 .visual h2{font-size:32px;line-height:1.2;margin-bottom:15px;position:relative}
 .visual p{color:var(--muted);position:relative}
+
+/* CONTENIDO Y FORMULARIO */
 .content{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px;padding:30px 0 80px}
 .panel{background:rgba(17,24,45,.95);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:30px;box-shadow:0 15px 45px rgba(0,0,0,.2)}
 .subtitle{color:#ff6da5;font-weight:bold;text-transform:uppercase;font-size:12px;letter-spacing:2px}
@@ -60,7 +73,7 @@ textarea{min-height:110px;resize:vertical}
 .small{text-align:center;font-size:11px;color:#8993ad}
 footer{border-top:1px solid rgba(255,255,255,.1);padding:25px;text-align:center;color:var(--muted);font-size:13px}
 
-/* DOBLE CERTIFICACIÓN */
+/* CERTIFICACIONES */
 .certification-section{padding:10px 0 35px}
 .section-heading{text-align:center;max-width:780px;margin:0 auto 30px}
 .section-heading h2{font-size:clamp(27px,4vw,40px);line-height:1.15;margin:10px 0}
@@ -90,7 +103,14 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:25px;text-align:center;
 .callout h2{font-size:clamp(23px,4vw,34px);margin-bottom:8px}
 .callout p{max-width:760px;margin:auto;color:#fff0f6}
 
+/* DISEÑO RESPONSIVO */
 @media(max-width:850px){
+.header-inner{flex-wrap:wrap}
+.menu-toggle{display:block}
+.nav-menu{display:none;flex-direction:column;align-items:stretch;width:100%;padding:10px 0 5px}
+.nav-menu.active{display:flex}
+.nav-menu a{padding:12px 14px}
+.nav-menu .nav-cta{text-align:center}
 .hero{grid-template-columns:1fr;padding:35px 0}
 .visual{min-height:300px}
 .content{grid-template-columns:1fr}
@@ -116,7 +136,7 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:25px;text-align:center;
 <body>
 
 <header>
-<div class="container">
+<div class="container header-inner">
 <div class="logo">
 <div class="logo-icon">TDH</div>
 <div>
@@ -124,12 +144,21 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:25px;text-align:center;
 <small>CAPACITACIÓN · CERTIFICACIÓN · INNOVACIÓN</small>
 </div>
 </div>
+
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">☰</button>
+
+<nav class="nav-menu" id="mainNav" aria-label="Navegación principal">
+<a href="#inicio">Inicio</a>
+<a href="#certificaciones">Certificaciones</a>
+<a href="#temario">Temario</a>
+<a href="#registro" class="nav-cta">Regístrate gratis</a>
+</nav>
 </div>
 </header>
 
 <main class="container">
 
-<section class="hero">
+<section class="hero" id="inicio">
 <div>
 <span class="tag">Seminario de inducción gratuito</span>
 <h1>Impulsa tu perfil.<span>Certifica tu experiencia.</span></h1>
@@ -152,8 +181,6 @@ a fortalecer tu perfil como instructor, capacitador o consultor.
 <div>🕖 <strong>7:00 p. m. a 9:00 p. m.</strong><br>Hora del centro de México</div>
 </div>
 <span class="free">100% GRATUITO</span>
-
-
 </div>
 
 <div class="visual">
@@ -162,8 +189,7 @@ a fortalecer tu perfil como instructor, capacitador o consultor.
 </div>
 </section>
 
-<!-- INFORMACIÓN DE LAS CERTIFICACIONES -->
-<section class="certification-section">
+<section class="certification-section" id="certificaciones">
 <div class="section-heading">
 <span class="subtitle">Conoce los estándares</span>
 <h2>Dos competencias que se complementan en tu desarrollo como instructor</h2>
@@ -204,8 +230,7 @@ Porque no solo se trata de saber impartir un curso: también es importante saber
 </div>
 </section>
 
-<!-- TEMARIO DEL SEMINARIO -->
-<section class="agenda-section">
+<section class="agenda-section" id="temario">
 <div class="section-heading">
 <span class="subtitle">Esto veremos durante el seminario</span>
 <h2>Una sesión para resolver tus dudas y conocer tu siguiente paso</h2>
@@ -262,8 +287,7 @@ Porque no solo se trata de saber impartir un curso: también es importante saber
 </div>
 </section>
 
-<!-- INFORMACIÓN Y FORMULARIO -->
-<section class="content">
+<section class="content" id="registro">
 
 <div class="panel">
 <span class="subtitle">¿Qué conocerás?</span>
@@ -300,7 +324,6 @@ La asistencia no equivale a obtener las certificaciones.
 </div>
 </div>
 
-<!-- FORMULARIO DE REGISTRO -->
 <div class="panel form-panel">
 <span class="subtitle">Aparta tu lugar</span>
 <h2>Regístrate gratis</h2>
@@ -309,7 +332,6 @@ Completa el formulario. Al enviarlo, WhatsApp se abrirá con tu mensaje listo pa
 </p>
 
 <form id="registrationForm">
-
 <div class="form-row">
 <div class="field">
 <label for="name">Nombre completo *</label>
@@ -352,7 +374,6 @@ Completa el formulario. Al enviarlo, WhatsApp se abrirá con tu mensaje listo pa
 </label>
 
 <button type="submit" class="submit">ENVIAR REGISTRO POR WHATSAPP ➜</button>
-
 <p class="small">WhatsApp abrirá una conversación. Deberás pulsar Enviar para completar tu registro.</p>
 </form>
 </div>
@@ -368,27 +389,45 @@ Capacitación · Certificación · Innovación<br>
 </footer>
 
 <script>
-// NÚMERO DE WHATSAPP DE TRUJILLO DIGITAL HUB
+// MENÚ RESPONSIVO
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", function() {
+  const isOpen = mainNav.classList.toggle("active");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+mainNav.querySelectorAll("a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    mainNav.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// WHATSAPP DE TRUJILLO DIGITAL HUB
 const WHATSAPP_NUMBER = "529222081087";
 
 document.getElementById("registrationForm").addEventListener("submit", function(e) {
-e.preventDefault();
+  e.preventDefault();
 
-if (!this.reportValidity()) return;
+  if (!this.reportValidity()) return;
 
-if (!/^52\d{10}$/.test(WHATSAPP_NUMBER)) {
-alert("Configura tu número de WhatsApp en el código HTML.");
-return;
-}
+  if (!/^52\d{10}$/.test(WHATSAPP_NUMBER)) {
+    alert("Configura tu número de WhatsApp en el código HTML.");
+    return;
+  }
 
-const formData = new FormData(this);
-const nombre = formData.get("name").trim();
-const telefono = formData.get("phone").trim();
-const correo = formData.get("email").trim();
-const experiencia = formData.get("experience").trim();
-const comentarios = formData.get("comments").trim();
+  const formData = new FormData(this);
+  const nombre = formData.get("name").trim();
+  const telefono = formData.get("phone").trim();
+  const correo = formData.get("email").trim();
+  const experiencia = formData.get("experience").trim();
+  const comentarios = formData.get("comments").trim();
 
-const mensaje = `
+  const mensaje = `
 ¡Hola, Trujillo Digital Hub! 👋
 
 Quiero registrarme al SEMINARIO GRATUITO DE INDUCCIÓN.
@@ -397,7 +436,6 @@ Quiero registrarme al SEMINARIO GRATUITO DE INDUCCIÓN.
 EC0217.01 + EC0301
 
 📅 Fecha: Jueves 26 de noviembre de 2026
-
 🕖 Horario: 7:00 p. m. a 9:00 p. m.
 
 📋 MIS DATOS:
@@ -414,10 +452,8 @@ EC0217.01 + EC0301
 Agradezco que me compartan más información.
 `.trim();
 
-const url = "https://wa.me/" + WHATSAPP_NUMBER +
-"?text=" + encodeURIComponent(mensaje);
-
-window.open(url, "_blank", "noopener,noreferrer");
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(mensaje);
+  window.open(url, "_blank", "noopener,noreferrer");
 });
 </script>
 
